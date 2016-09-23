@@ -9,10 +9,20 @@ fields:
     label: Title
     type:  text
     width: 1/2
+  home:
+    label: Homepage
+    type: select 
+    options: query
+    required: true
+    width: 1/2
+    query: 
+      page: collections
+      fetch: children
+      value: "{{uri}}"
+      text: "{{title}}"
   subtitle:
     label: Intro subtitle
     type:  text
-    width: 1/2
   description:
     label: Description
     type:  textarea
