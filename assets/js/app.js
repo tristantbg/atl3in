@@ -58,11 +58,11 @@ $(function() {
                         $el.parent('li').addClass('active');
                         History.pushState({
                             type: 'collection'
-                        }, $sitetitle + " | " + $el.data('title'), $el.attr('href'));
+                        }, $el.data('title'), $el.attr('href') + " | " + $sitetitle);
                     } else if ($el.data('target') == "page") {
                         History.pushState({
                             type: 'page'
-                        }, $sitetitle + " | " + $el.data('title'), $el.attr('href'));
+                        }, $el.data('title'), $el.attr('href') + " | " + $sitetitle);
                     } else if ($el.data('target') == "index") {
                         e.preventDefault();
                         $('.active').removeClass('active');
