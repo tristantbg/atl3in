@@ -19,12 +19,16 @@
 	<?php else: ?>
 		<?php if(!$page->description()->empty()): ?>
 			<meta name="description" content="<?= $page->description()->excerpt(250) ?>">
+		<?php else: ?>
+			<meta name="description" content="<?= $site->description()->html() ?>">
 		<?php endif ?>
 	<?php endif ?>
 	<meta name="robots" content="index,follow" />
 	<meta name="keywords" content="<?= $site->keywords()->html() ?>">
 	<meta name="DC.Title" content="<?= $page->title()->html() ?>" />
+	<?php if(!$page->description()->empty()): ?>
 	<meta name="DC.Description" content="<?= $page->description()->html() ?>"/ >
+	<?php endif ?>
 	<?php if($page->isHomepage()): ?>
 		<meta property="og:title" content="<?= $site->title()->html() ?>" />
 	<?php else: ?>
@@ -35,7 +39,9 @@
 	<?php if(!$site->ogimage()->empty()): ?>
 		<meta property="og:image" content="<?= $site->ogimage()->toFile()->width(1200)->url() ?>"/>
 	<?php endif ?>
-	<meta property="og:description" content="<?= $page->description()->html() ?>" />
+	<?php if(!$page->description()->empty()): ?>
+	<meta property="og:description" content="<?= $page->description()->excerpt(250) ?>" />
+	<?php endif ?>
 	<?php if($page->isHomepage()): ?>
 		<meta itemprop="name" content="<?= $site->title()->html() ?>">
 	<?php else: ?>
