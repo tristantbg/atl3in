@@ -234,7 +234,7 @@ $(function() {
             //
             $body.addClass('leaving');
             setTimeout(function() {
-                $body.scrollTop(0);
+                $(window).scrollTop(0);
                 $(target).load(url + ' #container .inner', function(response) {
                     setTimeout(function() {
                         $body.removeClass('leaving');
